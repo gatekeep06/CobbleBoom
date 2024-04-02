@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "cobbleboom",
+  "version": "${version}",
+  "name": "CobbleBoom",
+  "description": "kaboom",
+  "authors": [
+    "gatekeep"
+  ],
+  "contact": {
+    "website": "-",
+    "repo": "https://github.com/gatekeep06/cobbleboom"
+  },
+  "license": "MIT",
+  "icon": "assets/cobbleboom/icon.png",
+  "environment": "server",
+  "entrypoints": {
+    "client": [
+      "com.metacontent.cobbleboom.client.CobbleBoomClient"
+    ],
+    "main": [
+      "com.metacontent.cobbleboom.CobbleBoom"
+    ]
+  },
+  "mixins": [
+    "cobbleboom.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.15.3",
+    "fabric": "*",
+    "minecraft": "1.20.1"
+  }
+}
