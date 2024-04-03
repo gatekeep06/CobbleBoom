@@ -6,6 +6,9 @@ import com.cobblemon.mod.common.api.battles.model.PokemonBattle;
 import com.cobblemon.mod.common.battles.ShowdownInterpreter;
 import com.cobblemon.mod.common.battles.pokemon.BattlePokemon;
 import com.cobblemon.mod.common.entity.pokemon.PokemonEntity;
+import com.metacontent.cobbleboom.CobbleBoom;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
@@ -20,6 +23,7 @@ public abstract class ShowdownInterpreterMixin {
     @Inject(method = "handleMoveInstruction", at = @At("TAIL"), remap = false)
     protected void injectHandleMoveInstructionMethod(PokemonBattle battle, BattleMessage message, List<String> remainingLines, CallbackInfo ci) {
         Effect effect = message.effectAt(1);
+
         BattlePokemon battlePokemon = message.getBattlePokemon(0, battle);
         if (effect == null || battlePokemon == null) {
             return;
@@ -29,8 +33,9 @@ public abstract class ShowdownInterpreterMixin {
             PokemonEntity entity = battlePokemon.getEntity();
             if (entity != null) {
                 Vec3d pos = entity.getPos();
-                battle.getPlayers().get(0).getServerWorld().createExplosion(battlePokemon.getEntity(),
-                        pos.x, pos.y, pos.z, 20f, World.ExplosionSourceType.MOB);
+                World world = battle.getPlayers().get(0).getServerWorld();
+                float power = (float) world.getGameRules().get(CobbleBoom.COBBLEBOOM_POWER).get();
+                world.createExplosion(entity, pos.x, pos.y, pos.z, power, World.ExplosionSourceType.MOB);
             }
         }
     }

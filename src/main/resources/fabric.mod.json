@@ -8,12 +8,12 @@
     "gatekeep"
   ],
   "contact": {
-    "website": "-",
+    "website": "https://modrinth.com/mod/cobbleboom",
     "repo": "https://github.com/gatekeep06/cobbleboom"
   },
   "license": "MIT",
   "icon": "assets/cobbleboom/icon.png",
-  "environment": "server",
+  "environment": "*",
   "entrypoints": {
     "client": [
       "com.metacontent.cobbleboom.client.CobbleBoomClient"
