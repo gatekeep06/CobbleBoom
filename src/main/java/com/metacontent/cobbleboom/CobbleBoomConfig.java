@@ -24,7 +24,7 @@ public class CobbleBoomConfig {
         CobbleBoom.LOGGER.info("Initializing " + CobbleBoom.ID + " config");
         CobbleBoomConfig config;
         Gson gson = (new GsonBuilder()).disableHtmlEscaping().setPrettyPrinting().create();
-        File file = new File(FabricLoader.getInstance().getConfigDir() + CobbleBoom.ID + ".json");
+        File file = new File(FabricLoader.getInstance().getConfigDir() + "/" + CobbleBoom.ID + ".json");
         file.getParentFile().mkdirs();
         if (file.exists()) {
             try (FileReader fileReader = new FileReader(file)) {
