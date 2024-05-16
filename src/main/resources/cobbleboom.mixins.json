@@ -4,7 +4,7 @@
   "package": "com.metacontent.cobbleboom.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "ShowdownInterpreterMixin"
+    "MoveInstructionMixin"
   ],
   "client": [
   ],
