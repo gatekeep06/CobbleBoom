@@ -11,8 +11,7 @@ import org.slf4j.LoggerFactory;
 public class CobbleBoom implements ModInitializer {
     public static final String ID = "cobbleboom";
     public static final Logger LOGGER = LoggerFactory.getLogger(ID);
-    public static final GameRules.Key<DoubleRule> COBBLEBOOM_POWER = GameRuleRegistry.register("cobbleboomPower",
-            GameRules.Category.MOBS, GameRuleFactory.createDoubleRule(20f, 0f));
+    public static final CobbleBoomConfig CONFIG = CobbleBoomConfig.init();
 
     @Override
     public void onInitialize() {
